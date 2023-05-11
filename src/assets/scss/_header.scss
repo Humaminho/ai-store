@@ -1,8 +1,44 @@
+.header {
+	height: 3rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.logo {
+	color: black;
+}
+.nav {
+	display: none;
+}
+.nav-list {
+	display: flex;
+	align-items: center;
+	gap: 4rem;
+}
+.nav-link {
+  font-size: 1.2rem;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.nav-right {
+	display: flex;
+}
+.burger {
+	display: block;
+	cursor: pointer;
+  margin-right: 1rem;
+}
+.cart {
+	display: block;
+	cursor: pointer;
+  margin-right: 1rem;
+}
 @media screen and (min-width: 768px) {
-  .burger {
-    display: none;
-  }
-  .nav {
-    display: block;
-  }
+	.burger {
+		display: none;
+	}
+	.nav {
+		display: block;
+	}
 }

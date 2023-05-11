@@ -1,5 +1,9 @@
 @import 'header', 'footer', 'main';
+
 .app {
+  height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
 }
