@@ -1,4 +1,5 @@
+@import 'header', 'footer', 'main';
 .app {
   display: flex;
-  
+  flex-direction: column;
 }
