@@ -1,0 +1,13 @@
+.home {
+  display: flex;
+  background-color: var(--background-secondary);
+}
+.hero-section {
+  padding: 1rem;
+}
+.long-hero-photo {
+  max-width: 80%;
+}
+.short-hero-photos {
+  display: none;
+}
