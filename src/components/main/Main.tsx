@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home.tsx';
-import Catalogue from './Catalogue.tsx';
+import Catalogue from './Catalog.tsx';
 import About from './About.tsx';
 
 export default function Main() {
