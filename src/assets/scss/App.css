@@ -151,6 +151,25 @@
   display: none;
 }
 
+.card {
+  display: flex;
+  height: 300px;
+  width: 240px;
+  flex-direction: column;
+}
+
+.card-img {
+  width: 100%;
+  height: 80%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 0.8rem;
+}
+
+.card-title {
+  font-size: 1.2rem;
+}
+
 .home, .catalogue, .about {
   flex-grow: 1;
 }

@@ -1,7 +1,18 @@
-import React from 'react'
+import React from 'react';
+import products from './products.tsx';
+import Card from './Card.tsx';
 
 export default function Catalog() {
-  return (
-    <div className='catalog'>Catalog</div>
-  )
+
+	return (
+		<section className="catalog">
+			<ul>
+				{products.map((product) => {
+					return (
+						<Card product={product} />
+					);
+				})}
+			</ul>
+		</section>
+	);
 }

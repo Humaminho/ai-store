@@ -1,4 +1,4 @@
-const catalog = [
+const products = [
 	{
 		name: 'Cozy Sweater',
 		brand: 'H&M',
@@ -431,3 +431,5 @@ const catalog = [
 		size: 'Small, Medium, Large',
 	},
 ];
+
+export default products;
