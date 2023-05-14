@@ -50,6 +50,11 @@
     display: block;
   }
 }
+footer {
+  display: flex;
+  justify-content: center;
+}
+
 .home {
   display: flex;
   flex-direction: column;
@@ -151,10 +156,39 @@
   display: none;
 }
 
+.trending-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.trending-section > h2 {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.trending-list {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  overflow-x: scroll;
+}
+
+.newsletter-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .card {
   display: flex;
   height: 300px;
-  width: 240px;
+  min-width: 240px;
   flex-direction: column;
 }
 
@@ -188,6 +222,7 @@
   font-weight: bold;
   padding: 1rem 1.8rem;
   border-radius: 15px;
+  color: inherit;
 }
 
 .button-full {
@@ -195,5 +230,5 @@
 }
 
 .section {
-  margin: 2rem 0;
+  margin: 3rem 0;
 }/*# sourceMappingURL=App.css.map */

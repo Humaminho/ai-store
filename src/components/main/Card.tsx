@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { ReactComponentElement } from 'react';
+import { Product } from './products'
 
-export default function Card(product:any) {
-  return (
-		<li className="card" key={product.id}>
-			<img className="card-img" src={product.img} alt={product.name} />
-			<h2 className="card-price">${product.price}</h2>
-			<p className="card-title">{product.name}</p>
+export default function Card({...props}) {
+	return (
+		<li className="card">
+			<img className="card-img" src={props.img} alt={props.name} />
+			<h2 className="card-price">${props.price}</h2>
+			<p className="card-title">{props.name}</p>
 		</li>
-  );
+	);
 }

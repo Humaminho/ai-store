@@ -1,5 +1,5 @@
 import React from 'react';
-import products from './products.tsx';
+import products, { Product } from './products.tsx';
 import Card from './Card.tsx';
 
 export default function Catalog() {
@@ -7,9 +7,9 @@ export default function Catalog() {
 	return (
 		<section className="catalog">
 			<ul>
-				{products.map((product) => {
+				{products.map((prod:Product) => {
 					return (
-						<Card product={product} />
+						<Card key={prod.id} {...prod}/>
 					);
 				})}
 			</ul>

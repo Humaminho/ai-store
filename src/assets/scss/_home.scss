@@ -81,3 +81,28 @@
 .banner-img {
 	display: none;
 }
+.trending-section {
+	display: flex;
+	flex-direction: column;
+}
+.trending-section > h2 {
+	font-size: 2rem;
+	margin-bottom: 0.8rem;
+}
+.trending-list {
+  display: flex;
+	gap: 1rem;
+  padding-bottom: 1rem;
+	overflow-x: scroll;
+}
+
+.newsletter-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

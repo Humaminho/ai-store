@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function BannerSection() {
-  return (
+export default function BannerOne() {
+	return (
 		<section className="section banner banner-right">
 			<div className="banner-text">
 				<h2>Get Cozy with Cozy Threads</h2>
@@ -21,5 +21,5 @@ export default function BannerSection() {
 				className="banner-img"
 			/>
 		</section>
-  );
+	);
 }
