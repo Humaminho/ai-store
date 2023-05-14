@@ -1,4 +1,30 @@
+$footer-bg: var(--background-secondary);
+
 footer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: stretch;
+  gap: 1rem;
+  background-color: $footer-bg;
+}
+.back-to-top {
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+.footer-group-1,
+.footer-group-2 {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  padding: 0 2rem 1rem;
+}
+.footer-group-2 {
+}
+.copyright {
+  text-align: center;
+}
+.github {
+  align-self: center;
+  display: flex;
+  gap: 4px;
+  padding: 0 2rem 1rem;;
 }

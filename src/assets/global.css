@@ -1,8 +1,8 @@
 :root {
 	--background-primary: #000000;
-	--background-secondary: #212121;
+	--background-secondary: #252323;
 	--text-primary: #f5fbef;
-	--text-secondary: rgb(146, 159, 173);
+	--text-secondary: #929fad;
 	--emphasis: #006989;
 }
 
@@ -26,7 +26,6 @@ body {
 a {
 	text-decoration: none;
 	color: inherit;
-	display: block;
 }
 button {
 	cursor: pointer;
