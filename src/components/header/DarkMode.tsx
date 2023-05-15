@@ -1,10 +1,8 @@
-import React, { useContext } from 'react';
-import ThemeContext from '../utils/theme/ThemeContext';
-import setTheme from '../utils/theme/setupTheme';
+import { useContext } from 'react';
+import ThemeContext from '../utils/contexts/ThemeContext';
 
 export default function DarkMode() {
-
-  const { darkMode, setDarkMode }:any = useContext(ThemeContext)
+	const { darkMode, setDarkMode }: any = useContext(ThemeContext);
 
 	return (
 		<div className="checkbox-wrapper-2">
@@ -23,8 +21,8 @@ export default function DarkMode() {
 			) : (
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					width="18"
-					height="18"
+					width="20"
+					height="20"
 					fill="currentColor"
 					className="bi bi-brightness-high-fill light-on"
 					viewBox="0 0 16 16"
@@ -38,7 +36,6 @@ export default function DarkMode() {
 				checked={darkMode}
 				onChange={() => {
 					setDarkMode(!darkMode);
-					setTheme(darkMode);
 				}}
 			></input>
 		</div>

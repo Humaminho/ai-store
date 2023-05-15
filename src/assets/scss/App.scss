@@ -17,10 +17,11 @@
 }
 .button-full {
 	background-color: var(--emphasis);
+  color: var(--text-button);
 }
 .section {
 	margin: 3rem 0;
 }
-.dark-mode {
-  color: white;
+.no-scroll {
+  overflow: hidden;
 }
