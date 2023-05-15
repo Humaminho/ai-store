@@ -1,8 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 export default function CategoriesSection() {
-  return (
+	return (
 		<section className="section categories-section">
 			<div className="categories">
 				<Link to="/catalog" className="category">
@@ -39,5 +38,5 @@ export default function CategoriesSection() {
 				</Link>
 			</div>
 		</section>
-  );
+	);
 }

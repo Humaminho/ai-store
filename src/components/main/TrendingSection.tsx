@@ -1,4 +1,3 @@
-import React from 'react';
 import Card from './Card';
 import products, { Product } from './products';
 
@@ -19,12 +18,12 @@ export default function TrendingSection() {
 
 	return (
 		<section className="section trending-section">
-      <h2>Trending now</h2>
-			<ul className='trending-list'>
-        {trendingProducts(products).map((product) => {
-          return <Card key={product.id} {...product} />;
-        })}
-      </ul>
+			<h2>Trending now</h2>
+			<ul className="trending-list">
+				{trendingProducts(products).map((product) => {
+					return <Card key={product.id} {...product} />;
+				})}
+			</ul>
 		</section>
 	);
 }

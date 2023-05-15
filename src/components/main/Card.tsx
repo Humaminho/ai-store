@@ -1,5 +1,4 @@
-import React, { ReactComponentElement } from 'react';
-import { Product } from './products'
+
 
 export default function Card({...props}) {
 	return (

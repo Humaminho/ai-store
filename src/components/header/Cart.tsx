@@ -1,6 +1,5 @@
-import React from 'react';
 import { useContext } from 'react';
-import CartContext from '../utils/contexts/CartContext'
+import CartContext from '../utils/contexts/CartContext';
 
 export default function Cart() {
 	function handleCartBtnClick(): void {
@@ -13,7 +12,7 @@ export default function Cart() {
 		cartContainer?.classList.remove('cart-container-active');
 	}
 
-  const { cart, setCart }:any = useContext(CartContext);
+	const { cart }: any = useContext(CartContext);
 
 	return (
 		<>
@@ -47,16 +46,24 @@ export default function Cart() {
 						</svg>
 					</div>
 					<div className="cart-items">
-            {cart ? <h1>FULL CART</h1> : (
-              <div className="empty-cart-container">
-                <div className="empty-cart">
-                  <img src="/src/assets/img/empty-cart.png" alt="Empty cart" className='empty-cart-illustration'/>
-                  <h2>Your cart is empty</h2>
-                  <button className="button button-full">Go shopping</button>
-                </div>
-              </div>
-            )}
-          </div>
+						{cart ? (
+							<h1>FULL CART</h1>
+						) : (
+							<div className="empty-cart-container">
+								<div className="empty-cart">
+									<img
+										src="/src/assets/img/empty-cart.png"
+										alt="Empty cart"
+										className="empty-cart-illustration"
+									/>
+									<h2>Your cart is empty</h2>
+									<button className="button button-full">
+										Go shopping
+									</button>
+								</div>
+							</div>
+						)}
+					</div>
 				</div>
 			</div>
 		</>
