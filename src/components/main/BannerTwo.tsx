@@ -10,7 +10,7 @@ export default function BannerTwo() {
 					your doorstep. Shop now and experience the luxury of our
 					premium materials and unmatched quality and style.
 				</p>
-				<Link to="/catalogue" className="button button-full banner-cta">
+				<Link to="/catalog" className="button button-full banner-cta">
 					Ship now
 				</Link>
 			</div>

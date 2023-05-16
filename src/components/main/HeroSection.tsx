@@ -11,7 +11,7 @@ export default function HeroSection() {
 					Explore our collection of cozy and casual clothing for a
 					comfortable and stylish look.
 				</p>
-				<Link to="/catalogue" className="hero-cta button button-full">
+				<Link to="/catalog" className="hero-cta button button-full">
 					Shop Now
 				</Link>
 			</div>

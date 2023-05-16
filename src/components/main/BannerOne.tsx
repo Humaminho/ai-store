@@ -10,7 +10,7 @@ export default function BannerOne() {
 					materials for superior comfort, our products offer unmatched
 					quality and style.
 				</p>
-				<Link to="/catalogue" className="button button-full banner-cta">
+				<Link to="/catalog" className="button button-full banner-cta">
 					Shop Now
 				</Link>
 			</div>

@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import CartContext from '../utils/contexts/CartContext';
+import { Order } from '../utils/modals';
 
 export default function Cart() {
   function handleGoShoppingBtnClick(): void {
@@ -36,7 +37,7 @@ export default function Cart() {
 			<div className="cart-container">
 				<div className="cart">
 					<div className="cart-top">
-						<h2 className="cart-title">Your shopping cart (0)</h2>
+						<h2 className="cart-title">Your shopping cart ({cart.length})</h2>
 						<svg
 							onClick={handleBurgerClose}
 							xmlns="http://www.w3.org/2000/svg"
@@ -51,8 +52,10 @@ export default function Cart() {
 						</svg>
 					</div>
 					<div className="cart-items">
-						{cart ? (
-							<h1>FULL CART</h1>
+						{(cart.length !== 0) ? (
+							<div>
+                {cart.map((order:any) => <p>{order.product?.name}</p>)}
+              </div>
 						) : (
 							<div className="empty-cart-container">
 								<div className="empty-cart">

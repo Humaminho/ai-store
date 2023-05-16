@@ -1,30 +1,30 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import Stars from './Stars';
 import OrderContext from '../utils/contexts/OrderContext';
 import CartContext from '../utils/contexts/CartContext';
+
 export default function Product({ ...props }) {
 	const [quantity, setQuantity] = useState(1);
 
-  const { order, setOrder }: any = useContext(OrderContext);
-  const { cart, setCart }: any = useContext(CartContext);
+	const { cart, setCart }: any = useContext(CartContext);
+
+	useEffect(() => {
+		console.table(cart);
+	}, [cart]);
 
 	function handleQuantityChange(e: any) {
-		if (e.target.value > 999) {
-			return;
-		} else {
-			setQuantity(0);
-			setQuantity(parseInt(e.target.value));
+		const inputVal = e.target.value;
+		if (inputVal < 1000 && inputVal > -1) {
+			setQuantity(parseInt(inputVal));
 		}
 	}
 
-  function handleAddToCart() {
-    setOrder({
-      product: props,
+	function handleAddToCart(): void {
+    const order = {
+      product: {...props},
       quantity: quantity
-    })
-
-    console.log(order);
-  }
+    };
+	}
 
 	return (
 		<section className="section product-section">
@@ -34,11 +34,11 @@ export default function Product({ ...props }) {
 			<div className="product-content-section">
 				<h3 className="product-name">{props.name}</h3>
 				<h2 className="product-price">Price: ${props.price}</h2>
-				<p className="product-description grid">
+				<div className="product-description grid">
 					<p className="grid-child">Description: </p>
 					<p className="grid-child">{props.description}</p>
-				</p>
-				<p className="product-quantity grid">
+				</div>
+				<div className="product-quantity grid">
 					<p className="grid-child">Quantity: </p>
 					<input
 						className="grid-child"
@@ -47,9 +47,12 @@ export default function Product({ ...props }) {
 						max={5}
 						onChange={handleQuantityChange}
 					/>
-				</p>
+				</div>
 				<div className="product-cta-buttons">
-					<button className="button button-full add-to-cart-btn" onClick={handleAddToCart}>
+					<button
+						className="button button-full add-to-cart-btn"
+						onClick={handleAddToCart}
+					>
 						Add to Cart
 					</button>
 					<button className="button button-full buy-it-now-btn">

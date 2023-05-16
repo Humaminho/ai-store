@@ -10,8 +10,8 @@ export default function Nav() {
 					</Link>
 				</li>
 				<li>
-					<Link to="/catalogue" className="nav-link">
-						Catalogue
+					<Link to="/catalog" className="nav-link">
+						Catalog
 					</Link>
 				</li>
 				<li>
