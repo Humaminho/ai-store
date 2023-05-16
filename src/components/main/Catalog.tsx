@@ -1,4 +1,5 @@
-import products, { Product } from './products.tsx';
+import products from './products.tsx';
+import { Product } from '../utils/modals.tsx';
 import Card from './Card.tsx';
 
 export default function Catalog() {

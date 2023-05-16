@@ -1,6 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
 import Stars from './Stars';
-import OrderContext from '../utils/contexts/OrderContext';
 import CartContext from '../utils/contexts/CartContext';
 
 export default function Product({ ...props }) {

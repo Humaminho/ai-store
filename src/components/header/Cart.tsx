@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import CartContext from '../utils/contexts/CartContext';
-import { Order } from '../utils/modals';
 
 export default function Cart() {
   function handleGoShoppingBtnClick(): void {
