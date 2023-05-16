@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import CartContext from '../utils/contexts/CartContext';
+import Order from './Order';
 
 export default function Cart() {
   function handleGoShoppingBtnClick(): void {
@@ -53,7 +54,7 @@ export default function Cart() {
 					<div className="cart-items">
 						{(cart.length !== 0) ? (
 							<div>
-                {cart.map((order:any) => <p key={order?.product?.id}>{order?.product?.name}</p>)}
+                {cart.map((order:any) => <Order {...order} key={order.product.id}/>)}
               </div>
 						) : (
 							<div className="empty-cart-container">
