@@ -19,11 +19,37 @@ export default function Product({ ...props }) {
 		}
 	}
 
+	function checkIfPresent(): boolean {
+		let isPresent = false;
+		for (let i = 0; i < cart.length; i++) {
+			if (props.id === cart[i].product.id) {
+				isPresent = true;
+			}
+		}
+		return isPresent;
+	}
+
 	function handleAddToCart(): void {
-    const order = {
-      product: {...props},
-      quantity: quantity
-    };
+		const order = {
+			product: { ...props },
+			quantity: quantity,
+		};
+		if (checkIfPresent()) {
+			const newCart = cart.map((cartOrder: any) => {
+				if (cartOrder.product.id === order.product.id) {
+					console.log('is present');
+					const newQuantity = cartOrder.quantity + order.quantity;
+          console.log(newQuantity);
+					return {
+						...cartOrder,
+						quantity: newQuantity,
+					};
+				} else return cartOrder;
+			});
+			setCart(newCart);
+		} else {
+			setCart((prevCart: any) => [...prevCart, order]);
+		}
 	}
 
 	return (

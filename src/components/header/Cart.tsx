@@ -54,7 +54,7 @@ export default function Cart() {
 					<div className="cart-items">
 						{(cart.length !== 0) ? (
 							<div>
-                {cart.map((order:any) => <p>{order.product?.name}</p>)}
+                {cart.map((order:any) => <p key={order?.product?.id}>{order?.product?.name}</p>)}
               </div>
 						) : (
 							<div className="empty-cart-container">
