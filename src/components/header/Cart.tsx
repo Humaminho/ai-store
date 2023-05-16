@@ -1,7 +1,12 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import CartContext from '../utils/contexts/CartContext';
 
 export default function Cart() {
+  function handleGoShoppingBtnClick(): void {
+    handleBurgerClose();
+  }
+
 	function handleCartBtnClick(): void {
 		const cartContainer = document.querySelector('.cart-container');
 		cartContainer?.classList.add('cart-container-active');
@@ -52,14 +57,18 @@ export default function Cart() {
 							<div className="empty-cart-container">
 								<div className="empty-cart">
 									<img
-										src="/src/assets/img/empty-cart.png"
+										src="/img/empty-cart.png"
 										alt="Empty cart"
 										className="empty-cart-illustration"
 									/>
 									<h2>Your cart is empty</h2>
-									<button className="button button-full">
+									<Link
+										to="/catalog"
+										className="button button-full"
+                    onClick={handleGoShoppingBtnClick}
+									>
 										Go shopping
-									</button>
+									</Link>
 								</div>
 							</div>
 						)}

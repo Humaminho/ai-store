@@ -36,7 +36,7 @@ export default function Burger() {
 				<nav className="burger-nav">
 					<div className="burger-top">
 						<img
-							src="/src/assets/brand/logo.svg"
+							src="/brand/logo.svg"
 							height={40}
 							alt="logo"
 							className="logo"

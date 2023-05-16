@@ -51,7 +51,7 @@
 .catalog-title {
 	z-index: 1;
 	margin: 0 0 5px 5px;
-  color: var(--text-button);
+	color: var(--text-button);
 }
 .category:hover .background-img {
 	transform: scale(0.98);
@@ -91,39 +91,44 @@
 	margin-bottom: 0.8rem;
 }
 .trending-list {
-  display: flex;
+	display: flex;
 	gap: 1rem;
-  padding-bottom: 1rem;
+	padding-bottom: 1rem;
 	overflow-x: scroll;
 }
 
 .newsletter-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  background-color: var(--background-secondary);
-  padding: 3rem 2rem;
-  border-radius: 5px;
-  text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	background-color: var(--background-secondary);
+	padding: 3rem 2rem;
+	border-radius: 5px;
+	text-align: center;
 }
 .newsletter-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	margin-top: 1rem;
 }
 .newsletter-form > input {
-  width: 100%;
-  padding: 1rem 1.8rem;
-  border-radius: 15px;
-  font-size: 1.2rem;
-  color: black;
+	width: 100%;
+	padding: calc(1rem - 2px) calc(1.8rem - 2px);
+	border-radius: 5px;
+	font-size: 1.2rem;
+	color: black;
+	border: 2px solid white;
+	transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	&:focus {
+		border: 2px solid var(--emphasis);
+	}
 }
 .newsletter-button {
-  display: flex;
-  justify-content: center;
-  gap: .8rem;
-  width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 0.8rem;
+	width: 100%;
 }

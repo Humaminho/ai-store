@@ -1,5 +1,48 @@
 @import 'header', 'footer', 'main';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400&display=swap');
 
+:root {
+	--background-primary: #000000;
+	--background-secondary: #252323;
+	--text-primary: #f5fbef;
+	--text-secondary: #929fad;
+	--text-button: #f5fbef;
+	--emphasis: #006989;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 14px;
+}
+#root {
+	height: 100%;
+}
+body {
+	height: 100%;
+	background-color: #f5f5f5;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+button {
+	cursor: pointer;
+	border: none;
+	outline: none;
+	background-color: transparent;
+}
+input {
+	border: none;
+	outline: none;
+}
+ul {
+	list-style: none;
+}
 .app {
 	height: 100%;
 	display: flex;
@@ -7,21 +50,22 @@
 	align-items: stretch;
 	background-color: var(--background-primary);
 	color: var(--text-primary);
+	font-family: Roboto, 'sans-serif';
 }
 .button {
 	font-size: 1.2rem;
 	font-weight: bold;
 	padding: 1rem 1.8rem;
-	border-radius: 15px;
-  color: inherit;
+	border-radius: 5px;
+	color: inherit;
 }
 .button-full {
 	background-color: var(--emphasis);
-  color: var(--text-button);
+	color: var(--text-button);
 }
 .section {
 	margin: 3rem 0;
 }
 .no-scroll {
-  overflow: hidden;
+	overflow: hidden;
 }

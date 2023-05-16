@@ -7,7 +7,7 @@ export default function CategoriesSection() {
 				<Link to="/catalog" className="category">
 					<img
 						className="background-img"
-						src="/src/assets/img/casual.jpg"
+						src="/img/casual.jpg"
 						alt="casual wear"
 					/>
 					<h2 className="catalog-title">CASUAL WEAR</h2>
@@ -15,7 +15,7 @@ export default function CategoriesSection() {
 				<Link to="/catalog" className="category">
 					<img
 						className="background-img"
-						src="/src/assets/img/dress.jpg"
+						src="/img/dress.jpg"
 						alt="casual wear"
 					/>
 					<h2 className="catalog-title">DRESSES</h2>
@@ -23,7 +23,7 @@ export default function CategoriesSection() {
 				<Link to="/catalog" className="category">
 					<img
 						className="background-img"
-						src="/src/assets/img/jackets.jpg"
+						src="/img/jackets.jpg"
 						alt="casual wear"
 					/>
 					<h2 className="catalog-title">OUTWEAR</h2>
@@ -31,7 +31,7 @@ export default function CategoriesSection() {
 				<Link to="/catalog" className="category">
 					<img
 						className="background-img"
-						src="/src/assets/img/accessories.jpg"
+						src="/img/accessories.jpg"
 						alt="casual wear"
 					/>
 					<h2 className="catalog-title">ACCESSORIES</h2>

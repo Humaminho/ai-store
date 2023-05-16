@@ -18,18 +18,18 @@ export default function HeroSection() {
 			<div className="hero-pics">
 				<img
 					className="long-hero-photo"
-					src="src/assets/img/car-girl.jpg"
+					src="/img/car-girl.jpg"
 					alt=""
 				/>
 				<div className="short-hero-photos">
 					<img
 						className="short-hero-photo"
-						src="src/assets/img/boy.jpg"
+						src="/img/boy.jpg"
 						alt=""
 					/>
 					<img
 						className="short-hero-photo"
-						src="src/assets/img/girl.jpg"
+						src="/img/girl.jpg"
 						alt=""
 					/>
 				</div>

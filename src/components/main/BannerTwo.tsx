@@ -15,7 +15,7 @@ export default function BannerTwo() {
 				</Link>
 			</div>
 			<img
-				src="/src/assets/img/shirts.jpg"
+				src="/img/shirts.jpg"
 				alt="shirts"
 				className="banner-img"
 			/>
