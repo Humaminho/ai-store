@@ -1,6 +1,6 @@
 import Card from './Card';
 import products from './products';
-import { Product } from '../utils/modals'
+import { Product } from '../../utils/modals';
 
 export default function TrendingSection() {
 	function trendingProducts(products: Product[]): Product[] {

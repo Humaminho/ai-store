@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import Stars from './Stars';
-import CartContext from '../utils/contexts/CartContext';
+import CartContext from '../../utils/contexts/CartContext';
 
 export default function Product({ ...props }) {
 	const [quantity, setQuantity] = useState(1);
@@ -36,9 +36,7 @@ export default function Product({ ...props }) {
 		if (checkIfPresent()) {
 			const newCart = cart.map((cartOrder: any) => {
 				if (cartOrder.product.id === order.product.id) {
-					console.log('is present');
 					const newQuantity = cartOrder.quantity + order.quantity;
-          console.log(newQuantity);
 					return {
 						...cartOrder,
 						quantity: newQuantity,
@@ -49,6 +47,7 @@ export default function Product({ ...props }) {
 		} else {
 			setCart((prevCart: any) => [...prevCart, order]);
 		}
+    setQuantity(1);
 	}
 
 	return (

@@ -1,3 +1,5 @@
+@import 'mixins/square-img';
+
 .product-page {
 	padding: 2rem;
 }
@@ -7,17 +9,7 @@
 	gap: 3rem;
 }
 .img-section {
-	position: relative;
-	width: 100%;
-	padding-bottom: 100%;
-	img {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
+	@include square-img;
 }
 .product-content-section {
   display: flex;

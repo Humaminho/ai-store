@@ -1,4 +1,4 @@
-import { Product } from '../utils/modals';
+import { Product } from '../../utils/modals';
 
 const products: Product[] = [
 	{

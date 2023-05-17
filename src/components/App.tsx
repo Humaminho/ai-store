@@ -20,17 +20,17 @@ function App() {
 
 	return (
 		<Router>
-			<OrderContext.Provider value={{order, setOrder}}>
-        <CartContext.Provider value={{ cart, setCart }}>
-          <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
-            <div className="app">
-              <Header />
-              <Main />
-              <Footer />
-            </div>
-          </ThemeContext.Provider>
-        </CartContext.Provider>
-      </OrderContext.Provider>
+			<OrderContext.Provider value={{ order, setOrder }}>
+				<CartContext.Provider value={{ cart, setCart }}>
+					<ThemeContext.Provider value={{ darkMode, setDarkMode }}>
+						<div className="app">
+							<Header />
+							<Main />
+							<Footer />
+						</div>
+					</ThemeContext.Provider>
+				</CartContext.Provider>
+			</OrderContext.Provider>
 		</Router>
 	);
 }

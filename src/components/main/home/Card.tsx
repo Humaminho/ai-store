@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import goBackToTop from "../utils/functions/goBackToTop";
+import goBackToTop from '../../utils/functions/goBackToTop';
 
 export default function Card({...props}) {
 	return (

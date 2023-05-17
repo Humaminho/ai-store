@@ -1,24 +1,41 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CartContext from '../utils/contexts/CartContext';
 import Order from './Order';
 
 export default function Cart() {
-  function handleGoShoppingBtnClick(): void {
-    handleBurgerClose();
-  }
+	const [total, setTotal] = useState(0);
+	const { cart, setCart }: any = useContext(CartContext);
+
+	function handleGoShoppingBtnClick(): void {
+		handleBurgerClose();
+	}
+
+	useEffect(() => {
+		let cartTotal = 0;
+		for (let i = 0; i < cart.length; i++) {
+			cartTotal += cart[i].product.price * cart[i].quantity;
+		}
+		setTotal(cartTotal);
+	}, [cart]);
 
 	function handleCartBtnClick(): void {
 		const cartContainer = document.querySelector('.cart-container');
 		cartContainer?.classList.add('cart-container-active');
+		const html = document.querySelector('html');
+		html?.classList.add('no-scroll');
 	}
 
 	function handleBurgerClose(): void {
 		const cartContainer = document.querySelector('.cart-container');
 		cartContainer?.classList.remove('cart-container-active');
+		const html = document.querySelector('html');
+		html?.classList.remove('no-scroll');
 	}
 
-	const { cart }: any = useContext(CartContext);
+  function handleCheckout() :void {
+    setCart([]);
+  }
 
 	return (
 		<>
@@ -37,7 +54,9 @@ export default function Cart() {
 			<div className="cart-container">
 				<div className="cart">
 					<div className="cart-top">
-						<h2 className="cart-title">Your shopping cart ({cart.length})</h2>
+						<h2 className="cart-title">
+							Your shopping cart ({cart.length})
+						</h2>
 						<svg
 							onClick={handleBurgerClose}
 							xmlns="http://www.w3.org/2000/svg"
@@ -51,11 +70,26 @@ export default function Cart() {
 							<path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
 						</svg>
 					</div>
-					<div className="cart-items">
-						{(cart.length !== 0) ? (
-							<div>
-                {cart.map((order:any) => <Order {...order} key={order.product.id}/>)}
-              </div>
+					<div className="cart-section">
+						{cart.length !== 0 ? (
+							<div className="full-cart">
+								<div className="cart-items">
+									{cart.map((order: any) => (
+										<Order
+											{...order}
+											key={order.product.id}
+										/>
+									))}
+								</div>
+								<div className="checkout-section">
+									<div className="total-bill">
+										Total ${total.toFixed(2)}
+									</div>
+									<button className="checkout-btn button button-full" onClick={handleCheckout}>
+										Checkout
+									</button>
+								</div>
+							</div>
 						) : (
 							<div className="empty-cart-container">
 								<div className="empty-cart">
@@ -68,7 +102,7 @@ export default function Cart() {
 									<Link
 										to="/catalog"
 										className="button button-full"
-                    onClick={handleGoShoppingBtnClick}
+										onClick={handleGoShoppingBtnClick}
 									>
 										Go shopping
 									</Link>
