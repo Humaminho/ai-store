@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import '../assets/scss/App.css';
+import '../assets/styles/App.css';
 import Header from './header/Header.tsx';
 import Main from './main/Main.tsx';
 import Footer from './footer/Footer.tsx';
@@ -8,6 +8,7 @@ import ThemeContext from './utils/contexts/ThemeContext.tsx';
 import CartContext from './utils/contexts/CartContext.tsx';
 import OrderContext from './utils/contexts/OrderContext.tsx';
 import setupTheme from './utils/functions/setupTheme.tsx';
+import ScrollToTop from './utils/components/ScrollToTop.tsx';
 
 function App() {
 	const [darkMode, setDarkMode] = useState(false);
@@ -20,6 +21,7 @@ function App() {
 
 	return (
 		<Router>
+      <ScrollToTop />
 			<OrderContext.Provider value={{ order, setOrder }}>
 				<CartContext.Provider value={{ cart, setCart }}>
 					<ThemeContext.Provider value={{ darkMode, setDarkMode }}>

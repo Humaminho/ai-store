@@ -1,13 +1,13 @@
+@import 'mixins/square-img';
 .card {
   display: flex;
-  height: 300px;
   min-width: 240px;
   flex-direction: column;
+  margin: none
 }
-.card-img {
-  width: 100%;
-  height: 80%;
-  object-fit: cover;
+
+.card-img-container {
+  @include square-img;
   margin-bottom: .8rem;
 }
 .card-title {

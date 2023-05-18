@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import GithubLink from './GithubLink';
-import goBackToTop from '../utils/functions/goBackToTop';
+import scrollSmoothly from '../utils/functions/scrollSmoothly';
 
 export default function Footer() {
 	return (
 		<footer>
 			<button
-				onClick={goBackToTop}
+				onClick={scrollSmoothly}
 				className="button back-to-top"
 			>
 				Back to top

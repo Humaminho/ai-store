@@ -3,7 +3,7 @@ import CategoriesSection from './CategoriesSection';
 import BannerSection from './BannerOne';
 import TrendingSection from './TrendingSection';
 import BannerTwo from './BannerTwo';
-import Newsletter from './Newsletter';
+import Newsletter from '../Newsletter';
 
 export default function Home() {
 	return (

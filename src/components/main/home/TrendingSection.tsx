@@ -1,4 +1,4 @@
-import Card from './Card';
+import Card from '../Card';
 import products from './products';
 import { Product } from '../../utils/modals';
 

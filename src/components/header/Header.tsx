@@ -6,7 +6,7 @@ import DarkMode from './DarkMode';
 
 export default function Header() {
 	return (
-		<div className="header" id="top">
+		<div className="header" id="header-top">
 			<div className="logo">
 				<Link to="/">
 					<img
