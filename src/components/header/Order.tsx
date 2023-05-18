@@ -27,16 +27,6 @@ export default function Order({ ...props }) {
 		);
 	}
 
-	// function handleQuantityChange(e: any) {
-	// 	setCart(
-	// 		cart.map((order: any) => {
-	// 			if (order.product.id === props.product.id) {
-	// 				return { ...order, quantity: e.target.value };
-	// 			} else return order;
-	// 		})
-	// 	);
-	// }
-
 	function handleRemoveOrder() {
 		setCart(
 			cart.filter(

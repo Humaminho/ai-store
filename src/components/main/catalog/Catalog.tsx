@@ -7,15 +7,25 @@ import Newsletter from '../Newsletter.js';
 export default function Catalog() {
 	const [filteredList, setFilteredList] = useState<Product[]>([]);
 	const [category, setCategory] = useState<string>('popular');
+	const [searchInput, setSearchInput] = useState<string>('');
 
 	useEffect(() => {
 		filterByCategory(category);
 		changeActiveSection(category);
 	}, [category]);
 
+	useEffect(() => {
+		const searchInput = document.querySelector('.searchbar');
+		searchInput?.addEventListener('keypress', (e: any) => {
+			if (e.keyCode === 13) {
+        handleSearch();
+			}
+		});
+	}, []);
+
 	function filterByCategory(category: string) {
 		if (category === 'popular') {
-			setFilteredList(filterByPopularity());
+			setFilteredList(filterByPopularity().slice(0, 5));
 			return;
 		}
 		const filtered = products.filter((prod: Product) => {
@@ -24,14 +34,17 @@ export default function Catalog() {
 		setFilteredList(filtered);
 	}
 
-	function changeActiveSection(category: string) {
+	function unselectCategories() {
 		const filterButtons = document.querySelectorAll('.filter');
 		filterButtons.forEach((btn: any) => {
 			btn.classList.remove('active');
 		});
+	}
+
+	function changeActiveSection(category: string) {
+		unselectCategories();
 		const targetSection = document.getElementById(category);
 		targetSection?.classList.add('active');
-    console.log(targetSection);
 	}
 
 	function filterByPopularity() {
@@ -41,11 +54,37 @@ export default function Catalog() {
 		return filtered;
 	}
 
+	function handleSearch() {
+		setFilteredList(
+			products.filter((product) => {
+				const searchData = [
+					product.name,
+					product.category,
+					product.description,
+					product.brand,
+					product.material,
+					product.category,
+				]
+					.join(' ')
+					.toLowerCase();
+				return searchData.includes(searchInput.toLowerCase());
+			})
+		);
+		unselectCategories();
+	}
+
 	return (
 		<section className="catalog">
 			<div className="catalog-top">
 				<div className="search-section">
-					<div className="search-icon">
+					<input
+						className="searchbar"
+						type="search"
+						placeholder="Search..."
+						value={searchInput}
+						onChange={(e) => setSearchInput(e.target.value)}
+					/>
+					<button className="search-button" onClick={handleSearch}>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="16"
@@ -56,12 +95,7 @@ export default function Catalog() {
 						>
 							<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
 						</svg>
-					</div>
-					<input
-						className="searchbar"
-						type="search"
-						placeholder="Search..."
-					/>
+					</button>
 				</div>
 			</div>
 			<div className="filter-section">
@@ -121,9 +155,20 @@ export default function Catalog() {
 				</button>
 			</div>
 			<ul className="product-list section">
-				{filteredList.map((prod: Product) => {
-					return <Card key={prod.id} {...prod} />;
-				})}
+				{filteredList.length < 1 ? (
+					<div className="not-found-section">
+						<p>Product not found..</p>
+						<img
+							className="not-found-illustration"
+							src="/public/img/product-not-found.png"
+							alt="no products"
+						/>
+					</div>
+				) : (
+					filteredList.map((prod: Product) => {
+						return <Card key={prod.id} {...prod} />;
+					})
+				)}
 			</ul>
 			<Newsletter />
 		</section>
