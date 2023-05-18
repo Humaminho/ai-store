@@ -19,6 +19,7 @@ export default function Catalog() {
 		searchInput?.addEventListener('keypress', (e: any) => {
 			if (e.keyCode === 13) {
         handleSearch();
+        console.log('enter search')
 			}
 		});
 	}, []);
@@ -71,6 +72,7 @@ export default function Catalog() {
 			})
 		);
 		unselectCategories();
+    setSearchInput('');
 	}
 
 	return (
