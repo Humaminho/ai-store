@@ -14,11 +14,13 @@ export default function BannerOne() {
 					Shop Now
 				</Link>
 			</div>
-			<img
-				src="/img/shirts.jpg"
-				alt="shirts"
-				className="banner-img"
-			/>
+			<div className="banner-img-container">
+        <img
+          src="/img/boy.jpg"
+          alt="shirts"
+          className='banner-img'
+        />
+      </div>
 		</section>
 	);
 }

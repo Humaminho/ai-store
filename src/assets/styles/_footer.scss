@@ -1,30 +1,33 @@
-$footer-bg: var(--background-secondary);
-
 footer {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: stretch;
-  gap: 1rem;
-  background-color: $footer-bg;
+	align-items: center;
+	gap: 1rem;
+	background-color: var(--background-secondary);
 }
 .back-to-top {
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  align-self: stretch;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+		rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+.footer-links {
+  display: flex;
 }
 .footer-group-1,
 .footer-group-2 {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 0 2rem 1rem;
-}
-.footer-group-2 {
+	display: flex;
+  gap: 2rem;
+	justify-content: center;
+	padding: 0 2rem 1rem;
+	max-width: 550px;
 }
 .copyright {
-  text-align: center;
+	text-align: center;
 }
 .github {
-  align-self: center;
-  display: flex;
-  gap: 4px;
-  padding: 0 2rem 1rem;;
+	align-self: center;
+	display: flex;
+	gap: 4px;
+	padding: 0 2rem 1rem;
 }

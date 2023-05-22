@@ -14,11 +14,13 @@ export default function BannerTwo() {
 					Ship now
 				</Link>
 			</div>
-			<img
-				src="/img/shirts.jpg"
-				alt="shirts"
-				className="banner-img"
-			/>
+			<div className="banner-img-container">
+				<img
+					src="/img/girl.jpg"
+					alt="shirts"
+					className="banner-img"
+				/>
+			</div>
 		</section>
 	);
 }

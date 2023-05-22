@@ -5,10 +5,7 @@ import scrollSmoothly from '../utils/functions/scrollSmoothly';
 export default function Footer() {
 	return (
 		<footer>
-			<button
-				onClick={scrollSmoothly}
-				className="button back-to-top"
-			>
+			<button onClick={scrollSmoothly} className="button back-to-top">
 				Back to top
 			</button>
 			<div className="footer-links">
@@ -22,10 +19,10 @@ export default function Footer() {
 					<a href="#">Careers</a>
 					<Link to="about">Contact Us</Link>
 				</div>
-				<p className="copyright">
-					&copy; 2023 Cozy Threads. All rights reserved.
-				</p>
 			</div>
+			<p className="copyright">
+				&copy; 2023 Cozy Threads. All rights reserved.
+			</p>
 			<GithubLink />
 		</footer>
 	);

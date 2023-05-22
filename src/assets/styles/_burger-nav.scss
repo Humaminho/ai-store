@@ -12,6 +12,7 @@
 }
 .burger-top {
 	@include slider-top;
+  justify-content: flex-end;
 }
 .burger-nav {
 	display: flex;
