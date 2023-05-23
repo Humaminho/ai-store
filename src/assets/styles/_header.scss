@@ -4,6 +4,11 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+  background-color: var(--background-primary);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 }
 
 #header-top {
@@ -14,6 +19,10 @@
 }
 .nav {
 	display: none;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
 }
 .nav-list {
 	display: flex;

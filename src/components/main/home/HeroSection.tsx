@@ -15,24 +15,12 @@ export default function HeroSection() {
 					Shop Now
 				</Link>
 			</div>
-			<div className="hero-pics">
+			<div className="hero-photo-container">
 				<img
-					className="long-hero-photo"
+					className="hero-photo"
 					src="/img/car-girl.jpg"
 					alt=""
 				/>
-				<div className="short-hero-photos">
-					<img
-						className="short-hero-photo"
-						src="/img/boy.jpg"
-						alt=""
-					/>
-					<img
-						className="short-hero-photo"
-						src="/img/girl.jpg"
-						alt=""
-					/>
-				</div>
 			</div>
 		</section>
 	);

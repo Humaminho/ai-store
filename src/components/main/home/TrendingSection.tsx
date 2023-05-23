@@ -19,7 +19,7 @@ export default function TrendingSection() {
 
 	return (
 		<section className="section trending-section">
-			<h2>Trending now</h2>
+			<h2 className='section-title'>Trending now</h2>
 			<ul className="trending-list">
 				{trendingProducts(products).map((product) => {
 					return <Card key={product.id} {...product} />;

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 export default function CategoriesSection() {
 	return (
 		<section className="section categories-section">
-      <h2>Our Selection</h2>
+      <h2 className='section-title'>Our Selection</h2>
 			<div className="categories">
 				<Link to="/catalog" className="category casual">
 					<img
