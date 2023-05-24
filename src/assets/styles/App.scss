@@ -10,6 +10,20 @@
 	--emphasis: #006989;
 }
 
+::-webkit-scrollbar {
+	width: 10px;
+}
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+::-webkit-scrollbar-thumb {
+	background: var(--emphasis);
+	border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #078eb7;
+}
+
 * {
 	padding: 0;
 	margin: 0;
@@ -62,7 +76,8 @@ ul {
 .button-full {
 	background-color: var(--emphasis);
 	color: var(--text-button);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+		rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 .section:not(.newsletter-section) {
 	margin-bottom: 6rem;
@@ -73,19 +88,18 @@ ul {
 
 @media screen and (min-width: 768px) {
 	html {
-		font-size: 15px;
+		font-size: 14.5px;
 	}
-	.section:not(.newsletter-section)  {
+	.section:not(.newsletter-section) {
 		margin-bottom: 6rem;
 	}
-  
 }
 
 @media screen and (min-width: 992px) {
 	html {
-		font-size: 16px;
+		font-size: 15px;
 	}
-	.section:not(.newsletter-section)  {
+	.section:not(.newsletter-section) {
 		margin-bottom: 8rem;
 	}
 }

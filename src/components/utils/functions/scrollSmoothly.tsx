@@ -1,4 +1,4 @@
 export default function scrollSmoothly() {
-  const top = document.getElementById('header-top');
+  const top = document.querySelector('body');
   top?.scrollIntoView({ behavior: 'smooth' });
 }

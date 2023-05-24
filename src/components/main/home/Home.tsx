@@ -7,7 +7,7 @@ import Newsletter from '../Newsletter';
 
 export default function Home() {
 	return (
-		<div className="home">
+		<div className="home page">
 			<HeroSection />
 			<CategoriesSection />
 			<BannerSection />

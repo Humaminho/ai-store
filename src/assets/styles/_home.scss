@@ -85,11 +85,29 @@
 	flex-direction: column;
 }
 
-.trending-list {
-	display: flex;
-	gap: 1rem;
-	padding-bottom: 1rem;
-	overflow-x: scroll;
+.carousel {
+	position: relative;
+	padding: 0 3rem;
+}
+
+.carousel-btn {
+	color: var(--text-primary);
+	border: 1px solid var(--background-secondary);
+	padding: 0.7rem;
+	border-radius: 50%;
+	&:hover {
+		background-color: var(--background-secondary);
+	}
+	position: absolute;
+	top: 50%;
+	z-index: 4;
+  transform: translateY(-100%);
+}
+.carousel-left {
+	left: 0;
+}
+.carousel-right {
+  right: 0;
 }
 
 .newsletter-section {

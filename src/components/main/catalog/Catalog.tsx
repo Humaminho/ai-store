@@ -76,7 +76,7 @@ export default function Catalog() {
 	}
 
 	return (
-		<section className="catalog">
+		<section className="catalog page">
 			<div className="catalog-top">
 				<div className="search-section">
 					<input
@@ -162,7 +162,7 @@ export default function Catalog() {
 						<p>Product not found..</p>
 						<img
 							className="not-found-illustration"
-							src="/public/img/product-not-found.png"
+							src="/img/product-not-found.png"
 							alt="no products"
 						/>
 					</div>

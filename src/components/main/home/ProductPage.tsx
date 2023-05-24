@@ -12,7 +12,7 @@ function ProductPage() {
 	});
 
 	return (
-		<div className="product-page">
+		<div className="page product-page">
 			<Product {...product} />
 			<TrendingSection />
 			<Newsletter />

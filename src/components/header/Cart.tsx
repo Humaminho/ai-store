@@ -5,6 +5,7 @@ import Order from './Order';
 
 export default function Cart() {
 	const [total, setTotal] = useState(0);
+	const [isCartOpen, setIsCartOpen]: any = useState(false);
 	const { cart, setCart }: any = useContext(CartContext);
 
 	function handleGoShoppingBtnClick(): void {
@@ -20,6 +21,7 @@ export default function Cart() {
 	}, [cart]);
 
 	function handleCartBtnClick(): void {
+		setIsCartOpen(true);
 		const cartContainer = document.querySelector('.cart-container');
 		cartContainer?.classList.add('cart-container-active');
 		const html = document.querySelector('html');
@@ -27,6 +29,7 @@ export default function Cart() {
 	}
 
 	function handleBurgerClose(): void {
+		setIsCartOpen(false);
 		const cartContainer = document.querySelector('.cart-container');
 		cartContainer?.classList.remove('cart-container-active');
 		const html = document.querySelector('html');
@@ -39,6 +42,9 @@ export default function Cart() {
 
 	return (
 		<>
+			{isCartOpen && (
+				<div className="blur-layer" onClick={handleBurgerClose}></div>
+			)}
 			<div onClick={handleCartBtnClick} className="cart-button">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"

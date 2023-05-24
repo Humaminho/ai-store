@@ -3,7 +3,12 @@ import scrollSmoothly from '../utils/functions/scrollSmoothly';
 
 export default function Card({ ...props }) {
 	return (
-		<Link to={'/products/' + props.id} onClick={scrollSmoothly}>
+		<Link
+			to={'/products/' + props.id}
+			onClick={(e) => {
+				console.log('clicked from Card');
+			}}
+		>
 			<li className="card">
 				<div className="card-img-container">
 					<img

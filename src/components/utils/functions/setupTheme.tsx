@@ -21,7 +21,7 @@ export default function setTheme(darkMode: boolean) {
 		);
 		document.documentElement.style.setProperty(
 			'--background-secondary',
-			'#ADC6DD'
+			'#E3E3E3'
 		);
 		document.documentElement.style.setProperty('--text-primary', '#000000');
 		document.documentElement.style.setProperty(
