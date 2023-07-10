@@ -1,6 +1,6 @@
 # Cozy Shop
 
-Cozy Shop is a fictional e-commerce website for a clothing brand that specializes in comfortable wear. This project is built using React, styled with Sass and hosted on [Vercel](https://vercel.com/).
+Cozy Shop is a fictional e-commerce website for a clothing brand that specializes in comfortable wear. This project is built using React, styled with Sass and hosted on [Netlify](https://www.netlify.com/).
 
 ## Live demo
 Check the live demo [here](https://cozy-shop.netlify.app/).
