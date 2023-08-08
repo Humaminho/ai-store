@@ -11,6 +11,7 @@ export interface Product {
 	description: string;
 	material: string;
 	size: string;
+	[key: string]: string | number;
 }
 
 export interface Order {

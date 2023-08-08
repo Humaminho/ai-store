@@ -6,22 +6,24 @@ import DarkMode from './DarkMode';
 
 export default function Header() {
 	return (
-		<div className="header" id="header-top">
-			<div className="logo">
-				<Link to="/">
-					<img
-						src="/brand/logo.png"
-						height={40}
-						alt="logo"
-					/>
-				</Link>
-			</div>
-			<Nav />
-			<div className="nav-right">
-				<DarkMode />
-				<Cart />
-				<Burger />
-			</div>
-		</div>
+		<header>
+      <div className="header" id="header-top">
+        <div className="logo">
+          <Link to="/">
+            <img
+              src="/brand/logo.png"
+              height={50}
+              alt="logo"
+            />
+          </Link>
+        </div>
+        <Nav />
+        <div className="nav-right">
+          <DarkMode />
+          <Cart />
+          <Burger />
+        </div>
+      </div>
+    </header>
 	);
 }

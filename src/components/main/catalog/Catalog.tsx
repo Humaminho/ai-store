@@ -1,8 +1,8 @@
 import products from '../home/products.js';
 import { Product } from '../../utils/modals.js';
-import Card from '../Card.js';
+import Card from '../common/Card.js';
 import { useEffect, useState } from 'react';
-import Newsletter from '../Newsletter.js';
+import Newsletter from '../common/Newsletter.js';
 
 export default function Catalog() {
 	const [filteredList, setFilteredList] = useState<Product[]>([]);
@@ -12,17 +12,28 @@ export default function Catalog() {
 	useEffect(() => {
 		filterByCategory(category);
 		changeActiveSection(category);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [category]);
 
-	useEffect(() => {
-		const searchInput = document.querySelector('.searchbar');
-		searchInput?.addEventListener('keypress', (e: any) => {
-			if (e.keyCode === 13) {
-        handleSearch();
-        console.log('enter search')
-			}
-		});
-	}, []);
+	function handleSearch() {
+		setFilteredList(
+			products.filter((product: Product) => {
+				let searchInString = '';
+				for (const key in product) {
+					searchInString = searchInString + product[key];
+				}
+				if (
+					searchInString
+						.toLowerCase()
+						.indexOf(searchInput.toLowerCase()) !== -1
+				) {
+					return true;
+				} else return false;
+			})
+		);
+		unselectCategories();
+		setSearchInput('');
+	}
 
 	function filterByCategory(category: string) {
 		if (category === 'popular') {
@@ -37,7 +48,7 @@ export default function Catalog() {
 
 	function unselectCategories() {
 		const filterButtons = document.querySelectorAll('.filter');
-		filterButtons.forEach((btn: any) => {
+		filterButtons.forEach((btn: Element) => {
 			btn.classList.remove('active');
 		});
 	}
@@ -55,124 +66,111 @@ export default function Catalog() {
 		return filtered;
 	}
 
-	function handleSearch() {
-		setFilteredList(
-			products.filter((product) => {
-				const searchData = [
-					product.name,
-					product.category,
-					product.description,
-					product.brand,
-					product.material,
-					product.category,
-				]
-					.join(' ')
-					.toLowerCase();
-				return searchData.includes(searchInput.toLowerCase());
-			})
-		);
-		unselectCategories();
-    setSearchInput('');
-	}
-
 	return (
-		<section className="catalog page">
-			<div className="catalog-top">
-				<div className="search-section">
-					<input
-						className="searchbar"
-						type="search"
-						placeholder="Search..."
-						value={searchInput}
-						onChange={(e) => setSearchInput(e.target.value)}
-					/>
-					<button className="search-button" onClick={handleSearch}>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="16"
-							height="16"
-							fill="currentColor"
-							className="bi bi-search"
-							viewBox="0 0 16 16"
-						>
-							<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-						</svg>
-					</button>
-				</div>
-			</div>
-			<div className="filter-section">
-				<button
-					className="filter"
-					id="popular"
-					onClick={() => {
-						setCategory('popular');
-					}}
-				>
-					Popular
-				</button>
-				<button
-					className="filter"
-					id="top"
-					onClick={() => {
-						setCategory('top');
-					}}
-				>
-					Tops
-				</button>
-				<button
-					className="filter"
-					id="bottom"
-					onClick={() => {
-						setCategory('bottom');
-					}}
-				>
-					Bottoms
-				</button>
-				<button
-					className="filter"
-					id="outerwear"
-					onClick={() => {
-						setCategory('outerwear');
-					}}
-				>
-					Jackets
-				</button>
-				<button
-					className="filter"
-					id="dresses"
-					onClick={() => {
-						setCategory('dresses');
-					}}
-				>
-					Dresses
-				</button>
-				<button
-					className="filter"
-					id="accessories"
-					onClick={() => {
-						setCategory('accessories');
-					}}
-				>
-					Accessories
-				</button>
-			</div>
-			<ul className="product-list section">
-				{filteredList.length < 1 ? (
-					<div className="not-found-section">
-						<p>Product not found..</p>
-						<img
-							className="not-found-illustration"
-							src="/img/product-not-found.png"
-							alt="no products"
-						/>
-					</div>
-				) : (
-					filteredList.map((prod: Product) => {
-						return <Card key={prod.id} {...prod} />;
-					})
-				)}
-			</ul>
-			<Newsletter />
-		</section>
+		<div className="page-container">
+      <section className="catalog page">
+        <div className="catalog-top">
+          <div className="search-section">
+            <input
+              className="searchbar"
+              type="search"
+              placeholder="Search..."
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      handleSearch();
+                    }
+                  }}
+            />
+            <button className="search-button" onClick={handleSearch}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-search"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div className="filter-section">
+          <button
+            className="filter"
+            id="popular"
+            onClick={() => {
+              setCategory('popular');
+            }}
+          >
+            Popular
+          </button>
+          <button
+            className="filter"
+            id="top"
+            onClick={() => {
+              setCategory('top');
+            }}
+          >
+            Tops
+          </button>
+          <button
+            className="filter"
+            id="bottom"
+            onClick={() => {
+              setCategory('bottom');
+            }}
+          >
+            Bottoms
+          </button>
+          <button
+            className="filter"
+            id="outerwear"
+            onClick={() => {
+              setCategory('outerwear');
+            }}
+          >
+            Jackets
+          </button>
+          <button
+            className="filter"
+            id="dresses"
+            onClick={() => {
+              setCategory('dresses');
+            }}
+          >
+            Dresses
+          </button>
+          <button
+            className="filter"
+            id="accessories"
+            onClick={() => {
+              setCategory('accessories');
+            }}
+          >
+            Accessories
+          </button>
+        </div>
+        <ul className="product-list section">
+          {filteredList.length < 1 ? (
+            <div className="not-found-section">
+              <p>Product not found..</p>
+              <img
+                className="not-found-illustration"
+                src="/img/product-not-found.png"
+                alt="no products"
+              />
+            </div>
+          ) : (
+            filteredList.map((prod: Product) => {
+              return <Card key={prod.id} {...prod} />;
+            })
+          )}
+        </ul>
+        <Newsletter />
+      </section>
+    </div>
 	);
 }

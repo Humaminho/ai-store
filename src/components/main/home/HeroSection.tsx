@@ -18,8 +18,16 @@ export default function HeroSection() {
 			<div className="hero-photo-container">
 				<img
 					className="hero-photo"
-					src="/img/car-girl.jpg"
-					alt=""
+					src="/img/car-girl-xl.jpg"
+					alt="Girl besides a car"
+					srcSet="/img/car-girl-s.jpg 300w,
+                  /img/car-girl-m.jpg 600w,
+                  /img/car-girl-l.jpg 1000w,
+                  /img/car-girl-xl.jpg 2000w,"
+					sizes="(max-width: 600px) 300px,
+                (max-width: 1000px) 600px,
+                1000px"
+					width="2000"
 				/>
 			</div>
 		</section>

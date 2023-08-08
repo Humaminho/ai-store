@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import Slider from 'react-slick';
-import Card from '../Card';
+import Card from '../common/Card';
 import { Product } from '../../utils/modals';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -20,10 +20,6 @@ export default function Carousel({ items }: { items: Array<Product> }) {
 		sliderRef.current?.slickPrev();
 	};
 
-  function handleMouseDown(e: React.MouseEvent<HTMLDivElement>) {
-    console.log('clicked from carousel')
-  }
-
 	const settings = {
 		dots: true,
 		infinite: false,
@@ -31,6 +27,7 @@ export default function Carousel({ items }: { items: Array<Product> }) {
 		slidesToShow: 4,
 		slidesToScroll: 4,
 		arrows: false,
+		draggable: false,
 		responsive: [
 			{
 				breakpoint: 1200,
@@ -60,10 +57,7 @@ export default function Carousel({ items }: { items: Array<Product> }) {
 	};
 
 	return (
-		<div
-			className="carousel"
-			onClick={handleMouseDown}
-		>
+		<div className="carousel">
 			<button className="carousel-left carousel-btn" onClick={previous}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +74,7 @@ export default function Carousel({ items }: { items: Array<Product> }) {
 				</svg>
 			</button>
 			<Slider ref={sliderRef} {...settings}>
-				{items.map((product: any) => {
+				{items.map((product: Product) => {
 					return <Card key={product.id} {...product} />;
 				})}
 			</Slider>

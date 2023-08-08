@@ -1,0 +1,73 @@
+@import 'burger-nav', 'cart', 'checkbox';
+header {
+	background-color: var(--background-primary);
+	box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+		rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+	position: sticky;
+	top: 0;
+	z-index: 5;
+}
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	max-width: 1300px;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+
+#header-top {
+	scroll-behavior: smooth;
+}
+.nav {
+	display: none;
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	transform: translate(50%, -50%);
+}
+.nav-list {
+	display: flex;
+	align-items: center;
+	gap: 4rem;
+}
+.nav-link {
+	font-size: 1.2rem;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+.nav-right {
+	display: flex;
+	align-items: center;
+	gap: 1.8rem;
+	padding: 0.5rem 1rem;
+}
+.burger {
+	display: block;
+	cursor: pointer;
+	margin-right: 1rem;
+}
+.cart-button {
+	display: block;
+	cursor: pointer;
+}
+@media screen and (min-width: 600px) {
+	.burger {
+		display: none;
+	}
+	.nav {
+		display: block;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.header {
+		padding: 0 4rem;
+	}
+}
+@media screen and (min-width: 992px) {
+	.header {
+		padding: 0 5rem;
+	}
+}

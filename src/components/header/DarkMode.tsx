@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import ThemeContext from '../utils/contexts/ThemeContext';
 
 export default function DarkMode() {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const { darkMode, setDarkMode }: any = useContext(ThemeContext);
 
 	return (

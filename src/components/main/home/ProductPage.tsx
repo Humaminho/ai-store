@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import products from './products';
-import Newsletter from '../Newsletter';
+import Newsletter from '../common/Newsletter';
 import TrendingSection from './TrendingSection';
 import Product from './Product';
 
