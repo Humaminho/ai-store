@@ -1,23 +1,38 @@
-import { Link } from 'react-router-dom';
+import BurgerLink from './BurgerLink';
 
 export default function Burger() {
-	function handleBurgerClose(): void {
-		const navList = document.querySelector('.burger-nav-container');
-		navList?.classList.remove('burger-nav-container-active');
-		const html = document.querySelector('html');
-		html?.classList.remove('no-scroll');
-	}
+	const burgerLinksArray = [
+		{
+			text: 'HOME',
+			link: '/',
+		},
+		{
+			text: 'CATALOG',
+			link: '/catalog',
+		},
+		{
+			text: 'ABOUT',
+			link: '/about',
+		},
+	];
 
-	function handleBurgerClick(): void {
+	function openMenu(): void {
 		const navList = document.querySelector('.burger-nav-container');
 		navList?.classList.add('burger-nav-container-active');
 		const html = document.querySelector('html');
 		html?.classList.add('no-scroll');
 	}
 
+	function closeMenu(): void {
+		const navList = document.querySelector('.burger-nav-container');
+		navList?.classList.remove('burger-nav-container-active');
+		const html = document.querySelector('html');
+		html?.classList.remove('no-scroll');
+	}
+
 	return (
 		<>
-			<div className="burger" onClick={handleBurgerClick}>
+			<div className="burger" onClick={openMenu}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width={25}
@@ -36,7 +51,7 @@ export default function Burger() {
 				<nav className="burger-nav">
 					<div className="burger-top">
 						<svg
-							onClick={handleBurgerClose}
+							onClick={closeMenu}
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 24 24"
 							width="2rem"
@@ -49,33 +64,17 @@ export default function Burger() {
 						</svg>
 					</div>
 					<ul className="burger-nav-list">
-						<li>
-							<Link
-								to="/"
-								className="link burger-link"
-								onClick={handleBurgerClose}
-							>
-								HOME
-							</Link>
-						</li>
-						<li>
-							<Link
-								to="/catalog"
-								className="link burger-link"
-								onClick={handleBurgerClose}
-							>
-								CATALOG
-							</Link>
-						</li>
-						<li>
-							<Link
-								to="/about"
-								className="link burger-link"
-								onClick={handleBurgerClose}
-							>
-								ABOUT
-							</Link>
-						</li>
+						{burgerLinksArray.map((link) => {
+							return (
+								<li key={link.text}>
+									<BurgerLink
+										link={link.link}
+										text={link.text}
+										closeMenu={closeMenu}
+									/>
+								</li>
+							);
+						})}
 					</ul>
 				</nav>
 			</div>

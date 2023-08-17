@@ -1,13 +1,12 @@
 import { useContext } from 'react';
-import ThemeContext from '../utils/contexts/ThemeContext';
+import { ThemeContext } from '../utils/contexts/ThemeContext';
 
 export default function DarkMode() {
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const { darkMode, setDarkMode }: any = useContext(ThemeContext);
+	const themeContext = useContext(ThemeContext);
 
 	return (
 		<div className="checkbox-wrapper-2">
-			{darkMode ? (
+			{themeContext.darkMode ? (
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="18"
@@ -34,9 +33,9 @@ export default function DarkMode() {
 			<input
 				type="checkbox"
 				className="sc-gJwTLC ikxBAC"
-				checked={darkMode}
+				checked={themeContext.darkMode}
 				onChange={() => {
-					setDarkMode(!darkMode);
+					themeContext.setDarkMode(!themeContext.darkMode);
 				}}
 			></input>
 		</div>

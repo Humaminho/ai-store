@@ -1,6 +1,6 @@
-import { Product } from '../../utils/modals';
+import { ProductType } from '../../utils/types';
 
-const products: Product[] = [
+const products: ProductType[] = [
 	{
 		name: 'Cozy Sweater',
 		brand: 'H&M',

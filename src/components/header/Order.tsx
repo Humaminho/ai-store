@@ -1,12 +1,12 @@
 import { useContext } from 'react';
-import CartContext from '../utils/contexts/CartContext';
+import {  CartContext } from '../utils/contexts/CartContext';
 
 export default function Order({ ...props }) {
-	const { cart, setCart }: any = useContext(CartContext);
+	const cartContext = useContext(CartContext);
 
 	function handleMinusBtnClick() {
-		setCart(
-			cart.map((order: any) => {
+		cartContext.setCart(
+			cartContext.cart.map((order) => {
 				if (
 					order.product.id === props.product.id &&
 					order.quantity > 1
@@ -18,8 +18,8 @@ export default function Order({ ...props }) {
 	}
 
 	function handlePlusBtnClick() {
-		setCart(
-			cart.map((order: any) => {
+		cartContext.setCart(
+			cartContext.cart.map((order) => {
 				if (order.product.id === props.product.id) {
 					return { ...order, quantity: quantity + 1 };
 				} else return order;
@@ -28,9 +28,9 @@ export default function Order({ ...props }) {
 	}
 
 	function handleRemoveOrder() {
-		setCart(
-			cart.filter(
-				(order: any) => !(order.product.id === props.product.id)
+		cartContext.setCart(
+			cartContext.cart.filter(
+				(order) => !(order.product.id === props.product.id)
 			)
 		);
 	}

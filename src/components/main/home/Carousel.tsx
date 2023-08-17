@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import Slider from 'react-slick';
 import Card from '../common/Card';
-import { Product } from '../../utils/modals';
+import { ProductType } from '../../utils/types';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -74,7 +74,7 @@ export default function Carousel({ items }: { items: Array<Product> }) {
 				</svg>
 			</button>
 			<Slider ref={sliderRef} {...settings}>
-				{items.map((product: Product) => {
+				{items.map((product: ProductType) => {
 					return <Card key={product.id} {...product} />;
 				})}
 			</Slider>

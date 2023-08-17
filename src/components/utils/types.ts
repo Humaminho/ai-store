@@ -1,4 +1,4 @@
-export interface Product {
+export type ProductType = {
 	name: string;
 	brand: string;
 	id: number;
@@ -11,10 +11,12 @@ export interface Product {
 	description: string;
 	material: string;
 	size: string;
-	[key: string]: string | number;
+	key?: string | number;
 }
 
-export interface Order {
-  product: Product;
+export type OrderType = {
+  product: ProductType;
   quantity: number;
 }
+
+export type CartType = OrderType[];

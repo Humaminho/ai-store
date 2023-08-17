@@ -1,7 +1,7 @@
 import Newsletter from '../common/Newsletter';
 
 export default function About() {
-	interface Segment {
+	type Segment = {
 		svg: JSX.Element;
 		title: string;
 		description: string;
@@ -77,7 +77,7 @@ export default function About() {
           height={50}
           width={50}
 				>
-					<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+					<g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
 					<g
 						id="SVGRepo_tracerCarrier"
 						strokeLinecap="round"

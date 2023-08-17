@@ -1,22 +1,14 @@
-import { Link } from 'react-router-dom';
 import Burger from './Burger';
 import Nav from './Nav';
 import Cart from './Cart';
 import DarkMode from './DarkMode';
+import Logo from './Logo';
 
 export default function Header() {
 	return (
 		<header>
       <div className="header" id="header-top">
-        <div className="logo">
-          <Link to="/">
-            <img
-              src="/brand/logo.png"
-              height={50}
-              alt="logo"
-            />
-          </Link>
-        </div>
+        <Logo />
         <Nav />
         <div className="nav-right">
           <DarkMode />

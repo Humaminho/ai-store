@@ -1,5 +1,8 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
-const ThemeContext = createContext({});
+type ThemeContextType = {
+	darkMode: boolean;
+	setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-export default ThemeContext
+export const ThemeContext = createContext({} as ThemeContextType);

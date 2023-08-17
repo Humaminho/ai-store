@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import CartContext from '../utils/contexts/CartContext';
+import { CartContext } from '../utils/contexts/CartContext';
 import Order from './Order';
 
 export default function Cart() {
 	const [total, setTotal] = useState(0);
-	const [isCartOpen, setIsCartOpen]: any = useState(false);
-	const { cart, setCart }: any = useContext(CartContext);
+	const [isCartOpen, setIsCartOpen] = useState(false);
+	const cartContext = useContext(CartContext);
 
 	function handleGoShoppingBtnClick(): void {
 		handleBurgerClose();
@@ -14,13 +14,13 @@ export default function Cart() {
 
 	useEffect(() => {
 		let cartTotal = 0;
-		for (let i = 0; i < cart.length; i++) {
-			cartTotal += cart[i].product.price * cart[i].quantity;
+		for (let i = 0; i < cartContext.cart.length; i++) {
+			cartTotal += cartContext.cart[i].product.price * cartContext.cart[i].quantity;
 		}
 		setTotal(cartTotal);
-	}, [cart]);
+	}, [cartContext.cart]);
 
-	function handleCartBtnClick(): void {
+	function handleCartBtnClick() {
 		setIsCartOpen(true);
 		const cartContainer = document.querySelector('.cart-container');
 		cartContainer?.classList.add('cart-container-active');
@@ -28,7 +28,7 @@ export default function Cart() {
 		html?.classList.add('no-scroll');
 	}
 
-	function handleBurgerClose(): void {
+	function handleBurgerClose() {
 		setIsCartOpen(false);
 		const cartContainer = document.querySelector('.cart-container');
 		cartContainer?.classList.remove('cart-container-active');
@@ -36,8 +36,8 @@ export default function Cart() {
 		html?.classList.remove('no-scroll');
 	}
 
-	function handleCheckout(): void {
-		setCart([]);
+	function handleCheckout() {
+		cartContext.setCart([]);
 	}
 
 	return (
@@ -56,8 +56,10 @@ export default function Cart() {
 				>
 					<path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
 				</svg>
-				{cart.length ? (
-					<div className="number-of-orders">{cart.length}</div>
+				{cartContext.cart.length ? (
+					<div className="number-of-orders">
+						{cartContext.cart.length}
+					</div>
 				) : (
 					''
 				)}
@@ -66,7 +68,7 @@ export default function Cart() {
 				<div className="cart">
 					<div className="cart-top">
 						<h2 className="cart-title">
-							Your shopping cart ({cart.length})
+							Your shopping cart ({cartContext.cart.length})
 						</h2>
 						<svg
 							onClick={handleBurgerClose}
@@ -82,15 +84,17 @@ export default function Cart() {
 						</svg>
 					</div>
 					<div className="cart-section">
-						{cart.length !== 0 ? (
+						{cartContext.cart.length !== 0 ? (
 							<div className="full-cart">
 								<div className="cart-items">
-									{cart.map((order: any) => (
-										<Order
-											{...order}
-											key={order.product.id}
-										/>
-									))}
+									{cartContext.cart.map(
+										(order) => (
+											<Order
+												{...order}
+												key={order.product.id}
+											/>
+										)
+									)}
 								</div>
 								<div className="checkout-section">
 									<div className="total-bill">

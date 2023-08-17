@@ -4,26 +4,23 @@ import Header from './header/Header.tsx';
 import Main from './main/Main.tsx';
 import Footer from './footer/Footer.tsx';
 import { BrowserRouter as Router } from 'react-router-dom';
-import ThemeContext from './utils/contexts/ThemeContext.tsx';
-import CartContext from './utils/contexts/CartContext.tsx';
-import OrderContext from './utils/contexts/OrderContext.tsx';
-import setupTheme from './utils/functions/setupTheme.tsx';
-import ScrollToTop from './utils/components/ScrollToTop.tsx';
+import { ThemeContext } from './utils/contexts/ThemeContext.tsx';
+import { OrderContextProvider } from './utils/contexts/OrderContext.tsx';
+import setupTheme from './utils/functions/setupTheme.ts';
+import {  CartContextProvider } from './utils/contexts/CartContext.tsx';
 
 function App() {
-	const [darkMode, setDarkMode] = useState(false);
-	const [cart, setCart] = useState([]);
-	const [order, setOrder] = useState({});
 
+  const [darkMode, setDarkMode] = useState(false);
+  
 	useEffect(() => {
-		setupTheme(darkMode);
+		setupTheme(darkMode)
 	}, [darkMode]);
 
 	return (
 		<Router>
-      <ScrollToTop />
-			<OrderContext.Provider value={{ order, setOrder }}>
-				<CartContext.Provider value={{ cart, setCart }}>
+			<OrderContextProvider>
+				<CartContextProvider>
 					<ThemeContext.Provider value={{ darkMode, setDarkMode }}>
 						<div className="app">
 							<Header />
@@ -31,8 +28,8 @@ function App() {
 							<Footer />
 						</div>
 					</ThemeContext.Provider>
-				</CartContext.Provider>
-			</OrderContext.Provider>
+				</CartContextProvider>
+			</OrderContextProvider>
 		</Router>
 	);
 }
