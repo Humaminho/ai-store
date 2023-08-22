@@ -90,24 +90,23 @@
 	padding: 0 3rem;
 }
 
-.carousel-btn {
-	color: var(--text-primary);
-	border: 1px solid var(--background-secondary);
-	padding: 0.7rem;
-	border-radius: 50%;
-	&:hover {
-		background-color: var(--background-secondary);
-	}
-	position: absolute;
-	top: 50%;
-	z-index: 4;
-  transform: translateY(-100%);
+button.slick-prev {
+  left: -50px;
 }
-.carousel-left {
-	left: 0;
+
+button.slick-prev, button.slick-next {
+  color: red;
 }
-.carousel-right {
-  right: 0;
+
+button.slick-prev::before, button.slick-next::before {
+  color: var(--background-secondary);
+  font-size: 50px;
+  display: block;
+  height: 100%;
+}
+
+ul.slick-dots {
+  bottom: -50px;
 }
 
 .newsletter-section {

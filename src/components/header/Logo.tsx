@@ -1,11 +1,9 @@
-import { Link } from "react-router-dom";
-
 export default function Logo() {
   return (
 		<div className="logo">
-			<Link to="/">
+			<a href="https://cozy-shop.netlify.app/">
 				<img src="/brand/logo.png" height={50} alt="logo" />
-			</Link>
+			</a>
 		</div>
   );
 }

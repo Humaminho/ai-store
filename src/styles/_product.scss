@@ -1,13 +1,19 @@
 @import 'mixins/square-img';
 
+.product-page {
+  width: 100%;
+}
 .product-section {
 	display: flex;
 	flex-direction: column;
 	gap: 3rem;
 }
+
 .img-section {
 	@include square-img;
+  width: 100%;
 }
+
 .product-content-section {
 	display: flex;
 	flex-direction: column;
@@ -100,19 +106,28 @@ input.grid-child {
 @media screen and (min-width: 600px) {
   .product-main-content {
     display: flex;
-    align-items: flex-start;
-    gap: 2rem;
+    flex-direction: row;
+    gap: 1rem;
   }
   .img-section {
-    max-width: 410px;
+    max-width: 450px;
   }
 }
 
 @media screen and (min-width: 768px) {
+  .product-main-content {
+    gap: 2rem;
+  }
 }
 
 @media screen and (min-width: 992px) {
+  .product-main-content {
+    gap: 4rem;
+  }
 }
 
 @media screen and (min-width: 1200px) {
+  .product-main-content {
+    gap: 8rem;
+  }
 }

@@ -5,28 +5,16 @@ import { ProductType } from '../../utils/types';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-export default function Carousel({ items }: { items: Array<Product> }) {
-	type SliderRefType = {
-		slickPrev: () => void;
-		slickNext: () => void;
-	};
-	const sliderRef = useRef<SliderRefType>(null);
+export default function Carousel({ items }: { items: Array<ProductType> }) {
 
-	const next = () => {
-		sliderRef.current?.slickNext();
-	};
-
-	const previous = () => {
-		sliderRef.current?.slickPrev();
-	};
+	const sliderRef = useRef(null);
 
 	const settings = {
 		dots: true,
-		infinite: false,
+		infinite: true,
 		speed: 500,
 		slidesToShow: 4,
 		slidesToScroll: 4,
-		arrows: false,
 		draggable: false,
 		responsive: [
 			{
@@ -56,43 +44,14 @@ export default function Carousel({ items }: { items: Array<Product> }) {
 		],
 	};
 
+
 	return (
 		<div className="carousel">
-			<button className="carousel-left carousel-btn" onClick={previous}>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="16"
-					height="16"
-					fill="currentColor"
-					className="bi bi-chevron-left"
-					viewBox="0 0 16 16"
-				>
-					<path
-						fillRule="evenodd"
-						d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-					/>
-				</svg>
-			</button>
 			<Slider ref={sliderRef} {...settings}>
 				{items.map((product: ProductType) => {
 					return <Card key={product.id} {...product} />;
 				})}
 			</Slider>
-			<button className="carousel-right carousel-btn" onClick={next}>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="16"
-					height="16"
-					fill="currentColor"
-					className="bi bi-chevron-right"
-					viewBox="0 0 16 16"
-				>
-					<path
-						fillRule="evenodd"
-						d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-					/>
-				</svg>
-			</button>
 		</div>
 	);
 }

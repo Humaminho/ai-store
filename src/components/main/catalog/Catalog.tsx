@@ -5,21 +5,22 @@ import { useEffect, useState } from 'react';
 import Newsletter from '../common/Newsletter.js';
 
 export default function Catalog() {
-	const [filteredList, setFilteredList] = useState<ProductType[]>([]);
-	const [category, setCategory] = useState<string>('popular');
-	const [searchInput, setSearchInput] = useState<string>('');
+	const [filteredList, setFilteredList] = useState([] as ProductType[]);
+	const [category, setCategory] = useState('popular');
+	const [searchInput, setSearchInput] = useState('');
 
 	useEffect(() => {
 		filterByCategory(category);
 		changeActiveSection(category);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [category]);
 
 	function handleSearch() {
 		setFilteredList(
-			products.filter((product): ProductType => {
+			products.filter((product: ProductType) => {
 				let searchInString = '';
 				for (const key in product) {
-					searchInString = searchInString + product[key];
+					searchInString = searchInString + (product as never)[key];
 				}
 				if (
 					searchInString

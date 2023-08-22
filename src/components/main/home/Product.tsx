@@ -72,7 +72,7 @@ export default function Product({ ...props }) {
 					</div>
 					<div className="product-cta-buttons">
 						<button
-							className="button button-full add-to-cart-btn"
+							className="button button-outlined add-to-cart-btn"
 							onClick={handleAddToCart}
 						>
 							Add to Cart
